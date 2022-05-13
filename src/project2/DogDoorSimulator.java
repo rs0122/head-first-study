@@ -11,13 +11,23 @@ public class DogDoorSimulator {
 		remote.pressButton();
 
 		System.out.println("\nFido has gone outside...");
-		remote.pressButton();
+//		remote.pressButton();
 
 		System.out.println("\nFido's all done...");
-		remote.pressButton();
+//		remote.pressButton();
 
-		System.out.println("\nFido's back inside...");
+		try {
+			Thread.sleep(10000);
+		} catch  (InterruptedException e) {
+			
+		}
+		
+		System.out.println("\nbut, Fido's still outside...");
+		System.out.println("\nFido barks to go inside...");
+		System.out.println("\nthen, Gina grabs remote controller...");
 		remote.pressButton();
+		System.out.println("\nFido's back inside...");
+//		remote.pressButton();
 
 	}
 
