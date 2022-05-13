@@ -4,20 +4,14 @@ public class Guitar {
 
 	  private String serialNumber, model;
 	  private double price;
-	  private Builder builder;
-	  private Type type;
-	  private Wood backWood, topWood;
+	  GuitarSpec spec;
 
 	  public Guitar(String serialNumber, double price,
 	                Builder builder, String model, Type type,
 	                Wood backWood, Wood topWood) {
 	    this.serialNumber = serialNumber;
 	    this.price = price;
-	    this.builder = builder;
-	    this.model = model;
-	    this.type = type;
-	    this.backWood = backWood;
-	    this.topWood = topWood;
+	    this.spec = new GuitarSpec(builder, model, type, backWood, topWood);
 	  }
 
 	  public String getSerialNumber() {
@@ -30,20 +24,8 @@ public class Guitar {
 	  public void setPrice(float newPrice) {
 	    this.price = newPrice;
 	  }
-	  public Builder getBuilder() {
-	    return builder;
-	  }
-	  public String getModel() {
-	    return model;
-	  }
-	  public Type getType() {
-	    return type;
-	  }
-	  public Wood getBackWood() {
-	    return backWood;
-	  }
-	  public Wood getTopWood() {
-	    return topWood;
+	  public GuitarSpec getSpec() {
+		  return spec;
 	  }
 	}
 
