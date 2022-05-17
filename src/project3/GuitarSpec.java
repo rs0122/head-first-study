@@ -23,5 +23,4 @@ public class GuitarSpec extends InstrumentSpec{
 			  return false;
 	    return true;
 	  }
-
 }
