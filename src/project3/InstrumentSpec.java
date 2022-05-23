@@ -1,9 +1,10 @@
 package project3;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
-public abstract class InstrumentSpec {
+public class InstrumentSpec {
 	private Map properties;
 
 	public InstrumentSpec(Map properties) {
@@ -18,17 +19,18 @@ public abstract class InstrumentSpec {
 		return properties.get(propertyName);
 	}
 
+	public Map getProperties() {
+		return properties;
+	}
+
 	public boolean matches(InstrumentSpec otherSpec) {
-		if (builder != otherSpec.builder)
-			return false;
-		if ((model != null) && (!model.equals("")) && (!model.toLowerCase().equals(otherSpec.model.toLowerCase())))
-			return false;
-		if (type != otherSpec.type)
-			return false;
-		if (backWood != otherSpec.backWood)
-			return false;
-		if (topWood != otherSpec.topWood)
-			return false;
+		for (Iterator i = otherSpec.getProperties().keySet().iterator(); i.hasNext();) {
+			String propertyName = (String) i.next();
+			if (!properties.get(propertyName).equals(otherSpec.getProperty(propertyName))) {
+				return false;
+			}
+		}
 		return true;
 	}
+
 }
